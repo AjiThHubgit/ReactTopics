@@ -11,10 +11,11 @@ function Card(props) {
 
     return (
         <>
-            <div className="w-4/5 mx-auto flex gap-5 flex-wrap">
+            <div className="w-4/5 mx-auto card__container">
                 {props.products.map((product) => (
-                    <div key={product.id} className="w-1/4 shadow-lg shadow-white-500/40 mt-10 bg-white">
-                        <div className="rounded flex justify-center p-5">
+                    <div key={product.id} className="shadow-lg shadow-white-500/40 mt-10 bg-white rounded flex flex-col">
+                        <div className="p-5 fs-14 flex-1">{product.title}</div>
+                        <div className="flex justify-center p-5">
                             <img src={product.image} alt={product.title} className="card_img" />
                         </div>
                         <div>
@@ -33,8 +34,8 @@ function Card(props) {
                             </div>
                         </div>
                         <div className="btn-action border-t-4">
-                            <button className="w-1/2 p-3 border-r-4" onClick={() => addToCart(product)}>Add To cart</button>
-                            <button className="w-1/2 p-3">Buy Order</button>
+                            <button className="w-1/2 p-3 border-r-4 fw-600" onClick={() => addToCart(product)}>Add To cart</button>
+                            <button className="w-1/2 p-3 fw-600">Buy Order</button>
                         </div>
                     </div>
                 ))}
