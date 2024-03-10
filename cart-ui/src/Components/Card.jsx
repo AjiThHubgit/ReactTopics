@@ -16,7 +16,7 @@ function Card(props) {
                 {props.products.map((product) => (
                     <div key={product.id} className="shadow-lg shadow-white-500/40 mt-10 bg-white rounded flex flex-col">
                         <div className="p-5 fs-14 flex-1">{product.title}</div>
-                        <div className="flex justify-center p-5" onClick={() => addToCard(product)}>
+                        <div className="flex justify-center p-5" onClick={() => addToCart(product)}>
                             <img src={product.image} alt={product.title} className="card_img" />
                         </div>
                         <div>

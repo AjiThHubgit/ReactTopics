@@ -1,6 +1,7 @@
 import './App.css';
-import Home from './Pages/Home';
+// import Home from './Pages/Home';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Auth from  './Components/Auth';
 import { Provider } from "react-redux";
 import store from './redux/store';
 
@@ -9,7 +10,7 @@ function App() {
     <Provider store={store}>
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<Home />} />
+          <Route path='/' element={<Auth />} />
           <Route path="*" element={<h1>404 page error</h1>} />
         </Routes>
       </BrowserRouter>
