@@ -104,7 +104,7 @@ const FormComponent = () => {
 
                             {
                                 data.map((list, index) => (
-                                    <tr style={{backgroundColor: list.id%2 === 0 ? 'blue': 'white'}}>
+                                    <tr style={{ backgroundColor: list.id % 2 === 0 ? 'blue' : 'white' }}>
                                         <td>{list.id}</td>
                                         <td>{list.name}</td>
                                         <td>{list.age}</td>
