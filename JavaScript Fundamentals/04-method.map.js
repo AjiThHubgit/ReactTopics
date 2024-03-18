@@ -6,6 +6,7 @@ fruits.map((fruit, ind, arr) => {
     console.log('arr', arr);
 });
 
+
 const students = [
     { id: 1, name: 'John Doe', age: 20 },
     { id: 2, name: 'Jane Smith', age: 22 },
@@ -31,3 +32,4 @@ const filterAgeAboveTwenty = (studentId) => {
 
 console.log('filterAgeAboveTwenty', filterAgeAboveTwenty(studentId));
 filterAgeAboveTwenty(studentId);
+
