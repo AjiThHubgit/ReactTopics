@@ -15,7 +15,7 @@
 // padStart() & padEnd() – pad a string with another string until the result string reaches the given length.
 
 // Section 4. Extracting
-// split() – split a string into an array of substrings.
+// split() – split a string into an array of substrings.9
 // substring() – extract a substring from a string.
 // slice() – extract a part of a string.
 

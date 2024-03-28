@@ -18,7 +18,7 @@ function App() {
     ]
   );
   const [fruitsFinal, setFruitsFinal] = useState([
-    { id: 1, name: "Apple", select: false },
+    { id: 1, name: "Apple", select: false },  
     { id: 2, name: "Banana", select: false },
     { id: 3, name: "Orange", select: false },
     { id: 4, name: "Grapes", select: false },
@@ -32,60 +32,44 @@ function App() {
 
   const [fuitsShop, setFuitsShop] = useState(JSON.parse(JSON.stringify(fuitsShopFinal)));
   const [fruits, setFruits] = useState(JSON.parse(JSON.stringify(fruitsFinal)));
-  const [mappingDetails, setMappingDetails] = useState({
-    shops_mapping_details: [],
-    fruits_mapping_details: []
-  });
 
-  const shopHandleOnChange = (val, index) => {
-    setMappingDetails(prevState => ({
-      ...prevState,
-      shops_mapping_details: [
-        { ...prevState.shops_mapping_details, ind: index, name: val.name, checked: !val.checked }
-      ]
-    }));
+  const [shopMappingList, setShopMappinglist] = useState([]);
+  const [fruitMappingList, setFruitMappinglist] = useState([]);
 
-    setFuitsShop(
-
-    )
-  };
-
-  console.log(mappingDetails);
-
-  const handleOnChange = (val, index) => {
-    console.log(val, index);
+  const handleOnShopChange = (val, ind) => {
+    console.log(val, ind);
+    setShopMappinglist([
+      ...shopMappingList, { [ind]: val }
+    ])
   }
 
+  const handleOnFruitChange = (val, ind) => {
+    setFruitMappinglist([
+      ...fruitMappingList, { [ind]: val }
+    ])
+  }
+
+  console.log('shopMappingList', shopMappingList);
+  console.log('fruitMappingList', fruitMappingList);
   return (
     <div className="App">
 
-      <div className='flex'>
-        <div>
-          {fuitsShop.length > 0 &&
-            fuitsShop.map((shop, index) =>
-              <div className='mb-15' key={index}>
-                <input type="checkbox" checked={shop.checked} onChange={(e) => shopHandleOnChange(shop, index)} />
-                <label>{shop.name}</label>
-              </div>
-            )
-          }
-        </div>
-        <div>
-          {fruits.length > 0 &&
-            fruits.map((fruit, index) =>
-              <div className='mb-15 ml-15' key={index}>
-                <select onChange={(e) => handleOnChange(e.target.value, index)}>
-                  {
-                    fruits.map((fruit) =>
-                      <option key={fruit.id} value={JSON.stringify(fruit)}>{fruit.name}</option>
-                    )
-                  }
-                </select>
-              </div>
-            )
-          }
-        </div>
-      </div>
+      {
+        fuitsShop.map((list, index) => (
+          <div key={index} style={{display:'flex'}}>
+            <div>
+              <input type="checkbox" value={list.name} onChange={(e) => handleOnShopChange(e.target.value, index)} />
+            </div>
+            <select onChange={(e) => handleOnFruitChange(e.target.value, index)}>
+              <option value="volvo">Volvo</option>
+              <option value="saab">Saab</option>
+              <option value="mercedes">Mercedes</option>
+              <option value="audi">Audi</option>
+            </select>
+          </div>
+        ))
+
+    }
 
     </div>
   );

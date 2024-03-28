@@ -10,7 +10,6 @@ export const UserContext = createContext();
 
 function App() {
 
-  
   // Initialize state for dataObj
   const [dataObj, setDataObj] = useState({
     id: 1,
